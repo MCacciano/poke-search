@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+// components
+import PokemonUl from './components/pokemon-list/pokemon-list.component';
+
+// redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 import './App.css';
 
-import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css/dist/js/materialize.min.js';
-
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <h1>App</h1>
-    </div>
+    <Provider store={store}>
+      <Fragment>
+        <div>
+          <h1>PokeSearch</h1>
+          <PokemonUl />
+        </div>
+      </Fragment>
+    </Provider>
   );
-}
+};
 
 export default App;
