@@ -1,0 +1,23 @@
+.homeBgContainer {
+  height: 95vh;
+  width: 100vw;
+  position: relative;
+}
+
+.homeBg {
+  background: url('../../images/Epic-Pokemon-Backgrounds.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 100%;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: absolute;
+}

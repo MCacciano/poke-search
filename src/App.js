@@ -9,24 +9,15 @@ import Navigation from './components/navigation/navigation.component';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css/dist/js/materialize.min.js';
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
-    // init Materialize JS
-    M.AutoInit();
-  }, []);
-
   return (
     <Provider store={store}>
       <Router>
         <Fragment>
           <Navigation />
-          <div className="container">
-            <Route exact path="/" component={HomePage} />
-          </div>
+          <Route exact path="/" component={HomePage} />
         </Fragment>
       </Router>
     </Provider>

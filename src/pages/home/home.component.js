@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { homeBgContainer, homeBg, overlay } from './home.module.scss';
+
 const HomePage = () => {
   return (
-    <div>
-      <h2>home</h2>
+    <div className={homeBgContainer}>
+      <div className={homeBg}></div>
+      <div className={overlay}></div>
     </div>
   );
 };

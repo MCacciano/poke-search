@@ -1,0 +1,32 @@
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 5vh;
+  align-items: center;
+  background: red;
+
+  a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    height: 100%;
+  }
+
+  &Logo {
+    padding-left: 2rem;
+  }
+
+  &List {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+
+    &Item {
+      width: 100px;
+
+      .navLink {
+        font-weight: bold;
+      }
+    }
+  }
+}

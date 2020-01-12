@@ -1,20 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import {
+  nav,
+  navLogo,
+  navList,
+  navListItem,
+  navLink
+} from './navigation.module.scss';
+
 const Navigation = () => {
   return (
     <nav>
-      <div class="nav-wrapper red accent-4">
-        <a href="#" class="brand-logo" style={{ paddingLeft: '1rem' }}>
-          PokeSearch
-        </a>
+      <div className={nav}>
+        <h2>
+          <Link to="/" className={navLogo}>
+            PokeSearch
+          </Link>
+        </h2>
 
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-            <Link to="/">Home</Link>
+        <ul className={navList}>
+          <li className={navListItem}>
+            <Link className={navLink} to="/">
+              Home
+            </Link>
           </li>
-          <li>
-            <Link to="/search">Search</Link>
+          <li className={navListItem}>
+            <Link className={navLink} to="/search">
+              Search
+            </Link>
           </li>
         </ul>
       </div>
