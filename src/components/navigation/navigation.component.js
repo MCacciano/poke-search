@@ -9,7 +9,10 @@ import {
   navList,
   navListItem,
   navLink,
-  linkOverlay
+  linkOverlay,
+  searchForm,
+  searchText,
+  submitBtn
 } from './navigation.module.scss';
 
 const Navigation = () => {
@@ -25,13 +28,14 @@ const Navigation = () => {
           </h2>
         </div>
 
+        <form className={searchForm}>
+          <input className={searchText} type="text" name="search" />
+          <button className={submitBtn} type="button">
+            Search
+          </button>
+        </form>
+
         <ul className={navList}>
-          {/* <li className={navListItem}>
-            <span className={linkOverlay}></span>
-            <Link className={navLink} to="/">
-              Home
-            </Link>
-          </li> */}
           <li className={navListItem}>
             <span className={linkOverlay}></span>
             <Link className={navLink} to="/">
