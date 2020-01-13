@@ -3,30 +3,38 @@ import { Link } from 'react-router-dom';
 
 import {
   nav,
+  navLogoContainer,
+  navLogoImg,
   navLogo,
   navList,
   navListItem,
-  navLink
+  navLink,
+  linkOverlay
 } from './navigation.module.scss';
 
 const Navigation = () => {
   return (
     <nav>
       <div className={nav}>
-        <h2>
-          <Link to="/" className={navLogo}>
-            PokeSearch
-          </Link>
-        </h2>
+        <div className={navLogoContainer}>
+          <img className={navLogoImg} src="/images/pokeball-2.jpg" />
+          <h2>
+            <Link to="/" className={navLogo}>
+              PokeSearch
+            </Link>
+          </h2>
+        </div>
 
         <ul className={navList}>
-          <li className={navListItem}>
+          {/* <li className={navListItem}>
+            <span className={linkOverlay}></span>
             <Link className={navLink} to="/">
               Home
             </Link>
-          </li>
+          </li> */}
           <li className={navListItem}>
-            <Link className={navLink} to="/search">
+            <span className={linkOverlay}></span>
+            <Link className={navLink} to="/">
               Search
             </Link>
           </li>

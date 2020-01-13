@@ -1,9 +1,9 @@
 .nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 5vh;
+  height: 10vh;
+  line-height: 10vh;
   align-items: center;
-  background: red;
 
   a {
     text-decoration: none;
@@ -12,20 +12,72 @@
     height: 100%;
   }
 
-  &Logo {
-    padding-left: 2rem;
+  &LogoContainer {
+    max-height: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    padding-left: 3rem;
+
+    h2 {
+      padding-left: 1.5rem;
+    }
+
+    .navLogoImg {
+      height: 70%;
+      border-radius: 50%;
+    }
+
+    &Logo {
+    }
   }
 
   &List {
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    height: 100%;
+    padding-right: 3rem;
 
     &Item {
       width: 100px;
+      height: 100%;
+      text-align: center;
+      position: relative;
+
+      .linkOverlay {
+        position: absolute;
+        bottom: 0;
+        max-height: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(237, 26, 36, 0.8);
+        display: block;
+      }
+
+      &:hover {
+        .linkOverlay {
+          max-height: 100%;
+          transition: max-height 0.65s;
+        }
+
+        .navLink {
+          color: #fff;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
 
       .navLink {
         font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }
