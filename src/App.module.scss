@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  font-family: 'Roboto Slab', serif;
+  overflow: hidden;
+}
+
+.siteBackground {
+  background: url('/images/Epic-Pokemon-Backgrounds.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: -2;
+}

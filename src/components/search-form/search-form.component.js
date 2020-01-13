@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // redux
 import { connect } from 'react-redux';
@@ -39,6 +40,11 @@ const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
       <input className={submitBtn} type="submit" value="Search" />
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  getAllPokemon: PropTypes.func.isRequired,
+  getPokemonDetails: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -2,7 +2,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   grid-gap: 1rem;
-  margin: 0 5vh;
+  margin-top: 5vh;
 
   list-style: none;
+  overflow-y: scroll;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
 }

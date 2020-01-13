@@ -4,7 +4,7 @@ import { GET_POKEMON, GET_POKEMON_DETAILS } from '../types';
 // get all pokemon
 export const getAllPokemon = () => async dispatch => {
   try {
-    const res = await pokeApi.get('/pokemon');
+    const res = await pokeApi.get('/pokemon?limit=151');
 
     dispatch({
       type: GET_POKEMON,
