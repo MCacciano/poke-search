@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PokemonLi } from './pokemon-list-item.styles';
+// styles
+import { pokeListItem, pokeImg } from './pokemon-list-item.module.scss';
 
 const PokemonListItem = ({ pokemon }) => {
   // pad pokemon id for image request
@@ -18,10 +19,10 @@ const PokemonListItem = ({ pokemon }) => {
   // https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png
 
   return (
-    <PokemonLi>
+    <li className={pokeListItem}>
       <h3>{pokemon.name}</h3>
-      <img src={imgSrc} alt="A pokemon" />
-    </PokemonLi>
+      <img className={pokeImg} src={imgSrc} alt="A pokemon" />
+    </li>
   );
 };
 

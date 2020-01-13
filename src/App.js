@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // components

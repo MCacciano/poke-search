@@ -1,44 +1,35 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
 // redux
 import { connect } from 'react-redux';
-import { getAllPokemon } from '../../redux/pokemon/pokemon.actions';
 
+// components
 import Preloader from '../preloader/preloader.component';
 import PokemonListItem from '../pokemon-list-item/pokemon-list-item.component';
 
-// styled components
-import { PokemonUl } from './pokemon-list.styles';
+// styles
+import { pokeList } from './pokemon-list.module.scss';
 
-const PokemonList = ({ results, getAllPokemon }) => {
-  useEffect(() => {
-    getAllPokemon();
-    // eslint-disable-next-line
-  }, []);
-
+const PokemonList = ({ results }) => {
   if (!results) return <Preloader />;
 
   return (
-    <PokemonUl>
+    <ul className={pokeList}>
       {results.length > 0 &&
         results.map((pokemon, i) => (
           <PokemonListItem key={i} pokemon={pokemon} />
         ))}
-    </PokemonUl>
+    </ul>
   );
 };
 
 PokemonList.propTypes = {
-  results: PropTypes.array,
-  getAllPokemon: PropTypes.func
+  results: PropTypes.array
 };
 
 const mapStateToProps = ({ pokemon }) => ({
   results: pokemon.results
 });
 
-const mapDispatchToProps = dispatch => ({
-  getAllPokemon: () => dispatch(getAllPokemon())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);
+export default connect(mapStateToProps, null)(PokemonList);

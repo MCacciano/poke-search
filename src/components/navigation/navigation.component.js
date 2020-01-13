@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SearchForm from '../search-form/search-form.component';
+
 import {
   nav,
   navLogoContainer,
@@ -9,10 +11,7 @@ import {
   navList,
   navListItem,
   navLink,
-  linkOverlay,
-  searchForm,
-  searchText,
-  submitBtn
+  linkOverlay
 } from './navigation.module.scss';
 
 const Navigation = () => {
@@ -20,21 +19,18 @@ const Navigation = () => {
     <nav>
       <div className={nav}>
         <div className={navLogoContainer}>
-          <img className={navLogoImg} src="/images/pokeball-2.jpg" />
+          <img
+            className={navLogoImg}
+            src="/images/pokeball-2.jpg"
+            alt="pokeball"
+          />
           <h2>
             <Link to="/" className={navLogo}>
               PokeSearch
             </Link>
           </h2>
         </div>
-
-        <form className={searchForm}>
-          <input className={searchText} type="text" name="search" />
-          <button className={submitBtn} type="button">
-            Search
-          </button>
-        </form>
-
+        <SearchForm />
         <ul className={navList}>
           <li className={navListItem}>
             <span className={linkOverlay}></span>

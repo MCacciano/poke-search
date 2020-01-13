@@ -1,5 +1,5 @@
 import initialState from './pokemon.state';
-import { GET_POKEMON } from '../types';
+import { GET_POKEMON, GET_POKEMON_DETAILS } from '../types';
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
@@ -7,6 +7,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         results: payload
+      };
+    case GET_POKEMON_DETAILS:
+      return {
+        ...state,
+        details: payload
       };
     default:
       return state;

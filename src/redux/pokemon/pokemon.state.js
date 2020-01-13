@@ -1,3 +1,4 @@
 export default {
-  results: []
+  results: [],
+  details: null
 };
