@@ -11,7 +11,8 @@ import {
   navList,
   navListItem,
   navLink,
-  linkOverlay
+  linkOverlay,
+  logoColor
 } from './navigation.module.scss';
 
 const Navigation = () => {
@@ -26,7 +27,7 @@ const Navigation = () => {
           />
           <h2>
             <Link to="/" className={navLogo}>
-              PokeSearch
+              <span className={logoColor}>Poke</span>Search
             </Link>
           </h2>
         </div>

@@ -1,21 +1,8 @@
 import React from 'react';
 
 const Preloader = () => {
-  return (
-    <div className="preloader-wrapper big active">
-      <div className="spinner-layer spinner-blue-only">
-        <div className="circle-clipper left">
-          <div className="circle"></div>
-        </div>
-        <div className="gap-patch">
-          <div className="circle"></div>
-        </div>
-        <div className="circle-clipper right">
-          <div className="circle"></div>
-        </div>
-      </div>
-    </div>
-  );
+  // fix this with a loading spinner
+  return <p style={{ color: '#fff' }}>Loading...</p>;
 };
 
 export default Preloader;

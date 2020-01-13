@@ -14,7 +14,12 @@ import {
 } from './pokemon-list-item.module.scss';
 import { Link } from 'react-router-dom';
 
-const PokemonListItem = ({ pokemon, pokeResult, getPokemonDetails }) => {
+const PokemonListItem = ({
+  pokemon,
+  pokeResult,
+  details,
+  getPokemonDetails
+}) => {
   // pad pokemon id for image request
   const padIdToThree = id => (id <= 99999 ? `00${id}`.slice(-3) : id);
 
@@ -31,14 +36,13 @@ const PokemonListItem = ({ pokemon, pokeResult, getPokemonDetails }) => {
 
   const onPokemonClick = e => {
     getPokemonDetails(pokemon.name.toLowerCase());
-    console.log(pokemon, pokeResult);
   };
 
   return (
     <li onClick={onPokemonClick} className={pokeListItem}>
       <Link
         className={pokeDetailsLink}
-        to={{ pathname: `/pokemon/${pokemon.name}` }}
+        to={{ pathname: `/pokemon/${pokemon.name}`, state: { details } }}
       />
       <h3 className={pokeName}>{pokemon.name}</h3>
       <img className={pokeImg} src={imgSrc} alt="A pokemon" />
@@ -52,7 +56,7 @@ PokemonListItem.propTypes = {
   details: PropTypes.object
 };
 
-const mapStateToProps = ({ details, pokemon: { results } }) => ({
+const mapStateToProps = ({ pokemon: { results, details } }) => ({
   details,
   results
 });

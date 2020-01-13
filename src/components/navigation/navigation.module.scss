@@ -31,6 +31,10 @@
 
     &Logo {
     }
+
+    .logoColor {
+      color: rgba(237, 26, 36, 0.8);
+    }
   }
 
   &List {
@@ -68,6 +72,7 @@
       }
 
       .navLink {
+        width: 100%;
         font-weight: bold;
         text-transform: uppercase;
         color: #fff;

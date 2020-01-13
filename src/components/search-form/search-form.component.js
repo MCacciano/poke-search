@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 // redux
 import { connect } from 'react-redux';
@@ -13,12 +14,14 @@ import { searchForm, searchText, submitBtn } from './search-form.module.scss';
 
 const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
   const [name, setName] = useState('');
+  let history = useHistory();
 
   const onSearchSubmit = e => {
     e.preventDefault();
 
     if (!name) {
       getAllPokemon();
+      history.push('/');
     } else {
       getPokemonDetails(name);
     }
