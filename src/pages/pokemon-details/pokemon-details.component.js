@@ -23,6 +23,7 @@ const PokemonDetailsPage = ({ details, getPokemonDetails }) => {
     sprites: { front_default }
   } = details;
 
+  const padIdToThree = id => (id <= 99999 ? `00${id}`.slice(-3) : id);
   const imgSrc = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padIdToThree(
     id
   )}.png`;
