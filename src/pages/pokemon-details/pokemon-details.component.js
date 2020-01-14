@@ -17,13 +17,15 @@ const PokemonDetailsPage = ({ details, getPokemonDetails }) => {
 
   if (!details) return <div>Loading...</div>;
 
-  const { name } = details;
-  const { imgSrc } = location.state;
+  const {
+    name,
+    sprites: { front_default }
+  } = details;
 
   return (
     <div className={pokeCard}>
       <div className={pokeImgContainer}>
-        <img className={pokeImg} src={imgSrc} />
+        <img className={pokeImg} src={front_default} />
         <h3>{name}</h3>
       </div>
     </div>
