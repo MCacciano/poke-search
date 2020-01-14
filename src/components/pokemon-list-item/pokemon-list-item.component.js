@@ -15,7 +15,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const PokemonListItem = ({
-  pokemon,
+  pokemon: { name, url },
   pokeResult,
   details,
   getPokemonDetails
@@ -25,26 +25,24 @@ const PokemonListItem = ({
 
   const pokeID = url =>
     padIdToThree(
-      pokemon.url
-        .replace('https://pokeapi.co/api/v2/pokemon/', '')
-        .replace('/', '')
+      url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
     );
 
   const imgSrc = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokeID(
-    pokemon.url
+    url
   )}.png`;
 
   const onPokemonClick = e => {
-    getPokemonDetails(pokemon.name.toLowerCase());
+    getPokemonDetails(name.toLowerCase());
   };
 
   return (
     <li onClick={onPokemonClick} className={pokeListItem}>
       <Link
         className={pokeDetailsLink}
-        to={{ pathname: `/pokemon/${pokemon.name}`, state: { details } }}
+        to={{ pathname: `/pokemon/${name}`, state: { name } }}
       />
-      <h3 className={pokeName}>{pokemon.name}</h3>
+      <h3 className={pokeName}>{name}</h3>
       <img className={pokeImg} src={imgSrc} alt="A pokemon" />
     </li>
   );

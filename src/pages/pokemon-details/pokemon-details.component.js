@@ -1,27 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 
-// components
-import Preloader from '../../components/preloader/preloader.component';
+// redux
+import { connect } from 'react-redux';
+import { getPokemonDetails } from '../../redux/pokemon/pokemon.actions';
 
-const PokemonDetailsPage = props => {
-  console.log(props);
-
-  // if (!state.details) return <Preloader />;
-
-  // console.log(state);
+const PokemonDetailsPage = ({ details, getPokemonDetails }) => {
+  if (!details) return <div>Loading...</div>;
 
   return (
     <div style={{ color: '#fff' }}>
-      <h2>details page</h2>
-      {/* <p>{state.details.name}</p> */}
+      <h2>{details.name}</h2>
     </div>
   );
 };
 
 PokemonDetailsPage.propTypes = {
-  details: PropTypes.object
+  details: PropTypes.object,
+  getPokemonDetails: PropTypes.func
 };
 
-export default PokemonDetailsPage;
+const mapStateToProps = ({ pokemon }) => ({
+  details: pokemon.details
+});
+
+const mapDispatchToProps = dispatch => ({
+  getPokemonDetails: name => dispatch(getPokemonDetails(name))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonDetailsPage);
