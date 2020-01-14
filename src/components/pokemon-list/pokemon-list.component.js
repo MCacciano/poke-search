@@ -21,17 +21,17 @@ const PokemonList = ({ results, getAllPokemon }) => {
 
   return (
     <ul className={pokeList}>
-      <InfiniteScroll
+      {/* <InfiniteScroll
         dataLength={results.length}
         next={fetchMore}
         hasMore={true}
         loader={<h4>Loading...</h4>}
-      >
-        {results.length > 0 &&
-          results.map((pokemon, i) => (
-            <PokemonListItem key={i} pokemon={pokemon} />
-          ))}
-      </InfiniteScroll>
+      > */}
+      {results.length > 0 &&
+        results.map((pokemon, i) => (
+          <PokemonListItem key={i} pokemon={pokemon} />
+        ))}
+      {/* </InfiniteScroll> */}
     </ul>
   );
 };
