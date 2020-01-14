@@ -12,7 +12,7 @@ import {
 // styles
 import { searchForm, searchText, submitBtn } from './search-form.module.scss';
 
-const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
+const SearchForm = ({ getAllPokemon, getPokemonDetails, details }) => {
   const [name, setName] = useState('');
   let history = useHistory();
 
@@ -24,6 +24,9 @@ const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
       history.push('/');
     } else {
       getPokemonDetails(name);
+      // we just push to the url with the pokemon because the details are called in the pokemon-details component
+      history.push(`/pokemon/${name}`);
+      setName('');
     }
   };
 
@@ -38,6 +41,7 @@ const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
         className={searchText}
         type="text"
         name="search"
+        value={name}
         placeholder="Search for a pokemon"
       />
       <input className={submitBtn} type="submit" value="Search" />
@@ -47,8 +51,13 @@ const SearchForm = ({ getAllPokemon, getPokemonDetails }) => {
 
 SearchForm.propTypes = {
   getAllPokemon: PropTypes.func.isRequired,
-  getPokemonDetails: PropTypes.func.isRequired
+  getPokemonDetails: PropTypes.func.isRequired,
+  details: PropTypes.object
 };
+
+const mapStateToProps = ({ pokemon }) => ({
+  details: pokemon.details
+});
 
 const mapDispatchToProps = dispatch => ({
   getAllPokemon: () => dispatch(getAllPokemon()),

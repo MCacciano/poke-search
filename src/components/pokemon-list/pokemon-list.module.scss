@@ -3,6 +3,8 @@
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   grid-gap: 1rem;
   margin-top: 5vh;
+  margin-right: -120px;
+  padding-right: 120px;
 
   list-style: none;
   overflow-y: scroll;
