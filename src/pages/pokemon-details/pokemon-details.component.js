@@ -18,14 +18,19 @@ const PokemonDetailsPage = ({ details, getPokemonDetails }) => {
   if (!details) return <div>Loading...</div>;
 
   const {
+    id,
     name,
     sprites: { front_default }
   } = details;
 
+  const imgSrc = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padIdToThree(
+    id
+  )}.png`;
+
   return (
     <div className={pokeCard}>
       <div className={pokeImgContainer}>
-        <img className={pokeImg} src={front_default} />
+        <img className={pokeImg} src={imgSrc} />
         <h3>{name}</h3>
       </div>
     </div>
