@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 // redux
 import { connect } from 'react-redux';
@@ -20,6 +21,7 @@ const PokemonListItem = ({
   details,
   getPokemonDetails
 }) => {
+  const history = useHistory();
   // pad pokemon id for image request
   const padIdToThree = id => (id <= 99999 ? `00${id}`.slice(-3) : id);
 
@@ -33,15 +35,13 @@ const PokemonListItem = ({
   )}.png`;
 
   const onPokemonClick = e => {
+    console.log(imgSrc);
     getPokemonDetails(name.toLowerCase());
+    history.push(`/pokemon/${name}`, { imgSrc });
   };
 
   return (
     <li onClick={onPokemonClick} className={pokeListItem}>
-      <Link
-        className={pokeDetailsLink}
-        to={{ pathname: `/pokemon/${name}`, state: { name } }}
-      />
       <h3 className={pokeName}>{name}</h3>
       <img className={pokeImg} src={imgSrc} alt="A pokemon" />
     </li>
