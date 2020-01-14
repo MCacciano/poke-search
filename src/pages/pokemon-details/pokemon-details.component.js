@@ -14,15 +14,11 @@ import {
 
 const PokemonDetailsPage = ({ details, getPokemonDetails }) => {
   const location = useLocation();
-  const { imgSrc } = location.state;
-
-  useEffect(() => {
-    getPokemonDetails('charizard');
-  }, []);
 
   if (!details) return <div>Loading...</div>;
 
   const { name } = details;
+  const { imgSrc } = location.state;
 
   return (
     <div className={pokeCard}>
